@@ -188,14 +188,15 @@ class LinkedList:
 #- - - - - -- - - - - - - - - - - - - - - - - - -
 
 class Elemento: 
-    def _init_ (self, key, valor): 
+    def _init_ (self, key, valor, Node): 
         self.key = key 
         self.valor = valor
+        self.node = Node
 
     
 class Search:
-    def _init_(self): 
-        self.elementos=[]
+    def _init_(self, elementos): 
+        self.elementos=[elementos]
 
     def buscar (self, key): 
         for elemento in self.elementos: 

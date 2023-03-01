@@ -1,4 +1,4 @@
-from linked_list import Node, LinkedList
+from linked_list2 import Node, LinkedList, Elemento, Search
 
 
 # Nodes instantiation
@@ -50,3 +50,27 @@ ll.delete('D')
 print(ll)
 ll.delete('C')
 print(ll)
+
+#search
+
+
+my_list = Search()
+my_list.buscar(node_a)
+valor = my_list.buscar ('A')
+print(valor)
+my_list.buscar(node_b)
+valor = my_list.buscar ('B')
+print(valor)
+my_list.buscar(node_c)
+valor = my_list.buscar ('C')
+print(valor)
+my_list.buscar(node_d)
+valor = my_list.buscar ('D')
+print(valor)
+my_list.buscar(node_e)
+valor = my_list.buscar ('E')
+print(valor)
+my_list.buscar(node_f)
+valor = my_list.buscar ('F')
+
+print(valor)
