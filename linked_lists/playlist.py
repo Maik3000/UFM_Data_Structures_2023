@@ -87,9 +87,9 @@ class Playlist:
         return " <--> ".join(nodes)
 
 
-    def traverse(self):
+    def traverse_iter(self):
         '''
-        Navigates every node in the playlist.
+        Iterates trough the list using the __iter__ method.
 
         Args:
             None
@@ -97,13 +97,80 @@ class Playlist:
         Returns:
             None
         '''
-        
-        current_node = self.start
 
-        while current_node is not None:
+        for current_node in self:
             print(current_node)
-            current_node = current_node.next
-    
+
+    def insert_at_beginning(self, new_node: Node):
+        '''
+        Inserts a node at the start of the linked list.
+
+        Args:
+            new_node (Node): node to be inserted
+
+        Returns:
+            None
+        '''
+
+        new_node.next = self.start
+        self.start = new_node
+        self.length += 1
+
+    def insert_at_end(self, new_node: Node):
+        '''
+        Inserts a node at the end of the linked list.
+
+        Args:
+            new_node (Node): node to be inserted
+
+        Returns:
+            None
+        '''
+
+        if self.start is None:
+            self.start = new_node
+
+        else:
+            for current_node in self:
+                pass
+
+            current_node.next = new_node
+
+        self.length += 1
+
+    def insert_before(self, reference_node: str, new_node: Node):
+        '''
+        Inserts a node before the position of the reference node given.
+
+        Args:
+            reference_node (str): value of node used as reference
+            new_node (Node): node to be inserted
+
+        Returns:
+            None
+        '''
+
+        if self.start is None:
+            print('Empty linked list...')
+            return
+
+        if self.start.data == reference_node:
+            return self.insert_at_beginning(new_node)
+
+        previous_node = self.start
+
+        for current_node in self:
+
+            if current_node.data == reference_node:
+                previous_node.next = new_node
+                new_node.next = current_node
+                self.length += 1
+                return
+
+            previous_node = current_node
+
+        print('Reference node {} not found in linked list...'.format(reference_node))
+
 
 
     def play(self):
