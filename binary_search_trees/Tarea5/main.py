@@ -46,7 +46,7 @@ print("Tree original")
 print(bst.print_tree("tree")) 
 
 bst.delete(11)
-bst.delete(55)
+bst.delete(33)
 bst.delete(4)
 
 print("\nTree with deletes: \n" + bst.print_tree("tree"))
