@@ -134,12 +134,12 @@ class BinarySearchTree:
     
     def print_tree(self, traversal_type):
         if traversal_type == "tree":
-            return self._inorder_print(self.root, "")
+            return self._print(self.root, "")
         
 
-    def _inorder_print(self, current_node, traversal):
+    def _print(self, current_node, traversal):
         if current_node:
-            traversal = self._inorder_print(current_node.left_child, traversal)
-            traversal += (str(current_node.data) + "-")
-            traversal = self._inorder_print(current_node.right_child, traversal)
+            traversal = self._print(current_node.left_child, traversal)
+            traversal += (str(current_node.data) + "\n")
+            traversal = self._print(current_node.right_child, traversal)
         return traversal
